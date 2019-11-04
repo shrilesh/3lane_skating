@@ -1,0 +1,39 @@
+
+
+#headline{
+	font-size: 6vw;
+	color: #222;
+	text-align: center;
+	/*padding: 0vw 0vw 1vw 0vw;*/
+	margin: -1vw 0vw 0vw 0vw;
+}
+
+#mainTimer{
+	font-size: 17vw;
+	color: red;
+	text-align: center;
+	padding: 0px;
+	margin: -7vw 0vw 0vw 0vw;
+
+}
+
+#mainTimer:hover{
+	color: #222;
+}
+
+.lane{
+	font-size: 7vw;
+	color: #333;
+	line-height: 9vw;
+	text-align: center;
+	letter-spacing: 1vw;
+}
+
+.correct-sign{
+	color: green;
+	font-size: 6vw;
+}
+.incorrect-sign{
+	color: red;
+	font-size: 6vw;
+}

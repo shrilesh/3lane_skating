@@ -1,0 +1,92 @@
+from app import app, db
+from flask import Response, request
+import json
+from bson import json_util
+import RPi.GPIO as GPIO
+import time
+import sys
+import  os
+
+
+
+@app.route('/device/align', methods=["POST"])
+def getDeviceAlign():
+	try:
+
+		
+		if (GPIO.input(start_sensor_pin) or GPIO.input(end_sensor_pin)) == 0
+
+		# device_setup = request.get_json(force=True)
+		# print device_setup
+		# if device_setup["type"] =="align":
+			response = db.Device.addDeviceDetails(device_setup)
+			print response
+		return Response(json.dumps({
+					"status":"success",
+					"message":"Device aligned "
+				}, default=json_util.default),
+				mimetype="application/json")
+	except Exception, e:
+		return Response(json.dumps({
+			"status": "failure",
+			"message": "Invalid request: %s" %e
+		}, default=json_util.default), mimetype="application/json")
+
+@app.route('/device/initialize', methods=["POST"])
+def getDeviceIntialize():
+	try:
+
+		# devic_setup = request.get_json(force=True)
+		# print device_setup
+		# if device_setup["type"] =="initialize":
+		response = db.Device.addDeviceData(device_setup)
+		print respons		return Response(json.dumps({
+		"status":"success",
+		"message":"Device Initialized"
+		}, default=json_util_default),
+		mimetype="application/json")
+
+	except Exception, e:
+		return Response(json.dumps({
+				"status": "failure",
+				"message": "Invalid request: %s" %e
+			}, default=json_util.default), mimetype="application/json")
+	
+	# if device_setup["type"] =="initialize":
+	# 		response = db.Device.addDeviceDetails(device_setup)
+	# 		print response
+	# 		return Response(json.dumps({
+	# 					"status":"success",
+	# 					"message":"Device Initialized"
+	# 				}, default=json_util.default),
+	# 				mimetype="application/json")
+
+
+		
+				
+
+# @app.route('/device/update/data', methods=["POST"])
+# def getDeviceData():
+# 	device_setup = request.get_json(force=True)
+# 	print device_setup
+# 	data = db.Device.addDeviceData(device_setup)
+# 	print data
+# 	return Response(json.dumps({
+# 			"status": "SUCCESSLLY EXECUTED",
+# 			"message":"timer started"
+# 			}, default = json_util.default),
+# 	        mimetype="application/json")
+# @app.route('/device/getdata' , methods=["GET"])
+# def getDataValues():
+# 	response = db.Device.getData(device)
+# 	print response
+# 	return Response(json.dumps({
+# 		   "status": "success",
+# 		   "message": "data received"
+# 		}, default=json_util_default),
+# 	       mimetype="application/json")
+
+
+
+
+		
